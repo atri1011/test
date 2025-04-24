@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>目的地推荐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/styles.css">
+     <style>
+        /* Page specific styles */
+        body {
+             background: linear-gradient(135deg, #065f46 0%, #115e59 100%); /* Deep green to teal */
+             color: #e5e7eb;
+        }
+        /* Adjust active tab in the loaded component if possible, or manage state*/
+        /* Simple approach: Override style here (less ideal than JS state management) */
+        #tab-bar-placeholder .tab-item:nth-child(2) { /* Target the second tab (Recommendations) */
+             color: #ffffff !important; /* Force white */
+        }
+         #tab-bar-placeholder .tab-item:nth-child(1) { /* Deactivate home */
+             color: #e5e7eb !important;
+        }
+    </style>
+</head>
+<body class="no-scrollbar body-padding">
+    <!-- Status Bar Placeholder -->
+     <div id="status-bar-placeholder" class="status-bar-container">
+         <!-- Status bar will be loaded here -->
+          <!-- Add a subtle background/blur effect container for the status bar if needed -->
+         <div class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="px-5 pt-6">
+        <h1 class="text-3xl font-bold text-white mb-6 text-center gradient-text">探索精彩目的地</h1>
+
+        <!-- Filter/Sort Options -->
+        <div class="flex space-x-3 overflow-x-auto no-scrollbar pb-4 mb-6">
+             <button class="px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium whitespace-nowrap focus-glow interactive-scale particle-button">
+                <i class="fas fa-fire mr-1"></i> 热门推荐
+             </button>
+             <button class="px-4 py-2 rounded-full bg-white/10 text-gray-200 text-sm whitespace-nowrap focus-glow interactive-scale particle-button">
+                <i class="fas fa-mountain mr-1"></i> 自然风光
+             </button>
+             <button class="px-4 py-2 rounded-full bg-white/10 text-gray-200 text-sm whitespace-nowrap focus-glow interactive-scale particle-button">
+                 <i class="fas fa-city mr-1"></i> 城市探索
+             </button>
+              <button class="px-4 py-2 rounded-full bg-white/10 text-gray-200 text-sm whitespace-nowrap focus-glow interactive-scale particle-button">
+                 <i class="fas fa-umbrella-beach mr-1"></i> 海岛度假
+             </button>
+              <button class="px-4 py-2 rounded-full bg-white/10 text-gray-200 text-sm whitespace-nowrap focus-glow interactive-scale particle-button">
+                 <i class="fas fa-utensils mr-1"></i> 美食之旅
+             </button>
+        </div>
+
+        <!-- Recommendation Cards -->
+        <div class="space-y-6">
+            <!-- Card 1 -->
+            <div class="glassmorphism rounded-2xl overflow-hidden shadow-multi-layer-darker interactive-scale">
+                <img src="https://source.unsplash.com/random/800x500/?santorini,greece" alt="Santorini" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white mb-1">圣托里尼, 希腊</h3>
+                    <p class="text-sm text-gray-200 mb-3 line-clamp-2">爱琴海上的蓝白天堂，体验悬崖日落和独特火山地貌。</p>
+                    <div class="flex justify-between items-center">
+                         <div class="flex space-x-2">
+                             <span class="text-xs bg-blue-500/50 text-blue-100 px-2 py-1 rounded-full">浪漫</span>
+                             <span class="text-xs bg-yellow-500/50 text-yellow-100 px-2 py-1 rounded-full">海岛</span>
+                         </div>
+                         <button class="text-sm text-indigo-300 hover:text-indigo-100 particle-button focus-glow p-1 rounded">想去 +</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glassmorphism rounded-2xl overflow-hidden shadow-multi-layer-darker interactive-scale">
+                 <img src="https://source.unsplash.com/random/800x500/?iceland,aurora" alt="Iceland" class="w-full h-48 object-cover">
+                 <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white mb-1">冰岛</h3>
+                    <p class="text-sm text-gray-200 mb-3 line-clamp-2">冰川、火山、瀑布与绚烂极光交织的奇幻国度。</p>
+                     <div class="flex justify-between items-center">
+                         <div class="flex space-x-2">
+                             <span class="text-xs bg-green-500/50 text-green-100 px-2 py-1 rounded-full">自然</span>
+                             <span class="text-xs bg-purple-500/50 text-purple-100 px-2 py-1 rounded-full">极光</span>
+                             <span class="text-xs bg-gray-500/50 text-gray-100 px-2 py-1 rounded-full">探险</span>
+                         </div>
+                         <button class="text-sm text-indigo-300 hover:text-indigo-100 particle-button focus-glow p-1 rounded">想去 +</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Card 3 -->
+            <div class="glassmorphism rounded-2xl overflow-hidden shadow-multi-layer-darker interactive-scale">
+                 <img src="https://source.unsplash.com/random/800x500/?bali,indonesia" alt="Bali" class="w-full h-48 object-cover">
+                 <div class="p-4">
+                    <h3 class="text-xl font-semibold text-white mb-1">巴厘岛, 印度尼西亚</h3>
+                    <p class="text-sm text-gray-200 mb-3 line-clamp-2">冲浪者的天堂，瑜伽爱好者的圣地，享受热带风情与文化。</p>
+                     <div class="flex justify-between items-center">
+                         <div class="flex space-x-2">
+                              <span class="text-xs bg-yellow-500/50 text-yellow-100 px-2 py-1 rounded-full">海岛</span>
+                              <span class="text-xs bg-orange-500/50 text-orange-100 px-2 py-1 rounded-full">休闲</span>
+                              <span class="text-xs bg-teal-500/50 text-teal-100 px-2 py-1 rounded-full">文化</span>
+                         </div>
+                         <button class="text-sm text-indigo-300 hover:text-indigo-100 particle-button focus-glow p-1 rounded">想去 +</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Tab Bar Placeholder -->
+    <div id="tab-bar-placeholder" class="tab-bar-container">
+        <!-- Tab bar will be loaded here -->
+    </div>
+
+    <script src="../js/interactions.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Page specific styles if needed */
+        body {
+             background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%); /* Deep blue to deep purple */
+             color: #e5e7eb; /* Light gray text */
+        }
+    </style>
+</head>
+<body class="no-scrollbar body-padding">
+    <!-- Status Bar Placeholder -->
+    <div id="status-bar-placeholder" class="status-bar-container">
+        <!-- Status bar will be loaded here -->
+         <!-- Add a subtle background/blur effect container for the status bar if needed -->
+         <div class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="px-5 pt-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-2xl font-bold text-white">你好, 旅行者!</h1>
+                <p class="text-sm text-gray-300">准备好下一次冒险了吗?</p>
+            </div>
+            <img src="https://source.unsplash.com/random/100x100/?portrait,person" alt="User Avatar" class="w-12 h-12 rounded-full border-2 border-white/50 shadow-md">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative mb-6">
+            <input type="text" placeholder="搜索目的地或行程..." class="w-full py-3 pl-10 pr-4 rounded-full glassmorphism text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 shadow-multi-layer">
+            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-300"></i>
+        </div>
+
+        <!-- Upcoming Trip Card -->
+        <div class="mb-8">
+            <h2 class="text-lg font-semibold text-white mb-3">即将开始的行程</h2>
+            <div class="glassmorphism p-5 rounded-2xl shadow-multi-layer-darker interactive-scale cursor-pointer">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">京都樱花之旅</h3>
+                        <p class="text-sm text-gray-200 flex items-center"><i class="fas fa-calendar-alt mr-2"></i> 2025年4月1日 - 4月7日</p>
+                    </div>
+                    <span class="text-xs font-semibold bg-pink-500 text-white px-2 py-1 rounded-full">5天后</span>
+                </div>
+                <div class="mt-4 h-20 bg-cover bg-center rounded-lg" style="background-image: url('https://source.unsplash.com/random/800x300/?kyoto,cherryblossom');"></div>
+                <p class="text-xs text-gray-300 mt-3 line-clamp-2">探索古都的宁静寺庙，沉浸在盛开的樱花海中，品尝地道的日式料理...</p>
+                <div class="flex justify-end mt-3">
+                     <span class="text-xs text-indigo-300 hover:text-indigo-100">查看详情 &rarr;</span>
+                </div>
+            </div>
+             <!-- Add message if no upcoming trips -->
+             <!-- <p class="text-center text-gray-400 py-4">暂无即将开始的行程。</p> -->
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <button class="glassmorphism p-4 flex flex-col items-center justify-center rounded-xl interactive-scale particle-button focus-glow">
+                <i class="fas fa-plus-circle text-3xl text-green-400 mb-2"></i>
+                <span class="text-sm font-medium text-white">新建行程</span>
+            </button>
+            <button class="glassmorphism p-4 flex flex-col items-center justify-center rounded-xl interactive-scale particle-button focus-glow">
+                <i class="fas fa-map-marked-alt text-3xl text-blue-400 mb-2"></i>
+                <span class="text-sm font-medium text-white">目的地推荐</span>
+            </button>
+        </div>
+
+        <!-- Weather Alert Example (Conditional) -->
+        <div class="glassmorphism p-4 rounded-lg mb-6 flex items-center space-x-3 border border-yellow-500/50 shadow-md">
+            <i class="fas fa-cloud-sun-rain text-yellow-400 text-2xl"></i>
+            <div>
+                <h4 class="font-semibold text-white">天气提醒: 东京</h4>
+                <p class="text-xs text-gray-200">未来两天可能有阵雨，请准备雨具。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Tab Bar Placeholder -->
+    <div id="tab-bar-placeholder" class="tab-bar-container">
+        <!-- Tab bar will be loaded here -->
+    </div>
+
+    <script src="../js/interactions.js"></script>
+</body>
+</html>

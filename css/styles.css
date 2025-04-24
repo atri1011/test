@@ -1,0 +1,191 @@
+/* Import Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom styles */
+@layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+}
+
+body {
+    /* Placeholder gradient, adjust as needed for visual impact */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+}
+
+/* iPhone Frame Style */
+.iphone-frame {
+    width: 375px;
+    height: 812px;
+    border-radius: 44px; /* Increased radius for iPhone look */
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), /* Base shadow */
+                0 10px 10px -5px rgba(0, 0, 0, 0.1), /* Nearer shadow */
+                inset 0 0 0 1px rgba(255,255,255,0.1); /* Inner highlight for edge */
+    position: relative; /* Needed for absolute positioning of iframe if required */
+    background-color: #000; /* Fallback bg */
+}
+
+.iphone-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* General Glassmorphism Style */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%); /* Safari */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1rem; /* Default rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+}
+
+/* Multi-layer Shadow System Example */
+.shadow-multi-layer {
+     box-shadow: 0 1px 1px rgba(0,0,0,0.08),
+                 0 2px 2px rgba(0,0,0,0.08),
+                 0 4px 4px rgba(0,0,0,0.08),
+                 0 8px 8px rgba(0,0,0,0.08),
+                 0 16px 16px rgba(0,0,0,0.08);
+}
+.shadow-multi-layer-darker {
+     box-shadow: 0 1px 2px rgba(0,0,0,0.15),
+                 0 2px 4px rgba(0,0,0,0.15),
+                 0 4px 8px rgba(0,0,0,0.15),
+                 0 8px 16px rgba(0,0,0,0.15),
+                 0 16px 32px rgba(0,0,0,0.15);
+}
+
+
+/* Interaction Styles */
+.interactive-scale {
+    transition: transform 0.2s ease-out;
+}
+.interactive-scale:hover {
+    transform: scale(1.05);
+}
+
+.focus-glow:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.4); /* Example glow color (indigo) */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Particle Effect Container */
+.particle-button {
+    position: relative;
+    overflow: hidden; /* Contain particles */
+    cursor: pointer;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.7); /* Particle color */
+    border-radius: 50%;
+    pointer-events: none; /* Prevent particles from interfering */
+    transform: translate(-50%, -50%);
+    animation: explode 0.6s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3) translate(var(--tx, 0px), var(--ty, 0px)); /* Use CSS variables for direction */
+        opacity: 0;
+    }
+}
+
+/* Status Bar & Tab Bar Fixed Positioning Base */
+.status-bar-container, .tab-bar-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%; /* Should fill the iframe width */
+    max-width: 375px; /* Constrain to device width */
+    margin: 0 auto; /* Center if needed, though left/right 0 should work */
+    z-index: 50;
+    /* Glassmorphism can be applied here or within the component HTML */
+}
+.status-bar-container {
+    top: 0;
+}
+.tab-bar-container {
+    bottom: 0;
+}
+
+/* Body padding to prevent overlap with fixed bars */
+.body-padding {
+    padding-top: 60px; /* Adjust based on status bar height */
+    padding-bottom: 90px; /* Adjust based on tab bar height */
+}
+
+/* Specific component styles */
+.status-bar {
+    height: 44px; /* Approximate iOS status bar height */
+    color: white; /* Default color, adjust based on background */
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    /* Add background/blur if needed directly here or via container */
+    /* background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px); */
+}
+
+.tab-bar {
+    height: 84px; /* Approximate iOS tab bar height with home indicator space */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Align icons to top part */
+    padding-top: 10px;
+    padding-bottom: 30px; /* Space for home indicator */
+    /* Apply glassmorphism */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: #e5e7eb; /* Gray-200 */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.tab-item.active {
+    color: #ffffff; /* White for active */
+}
+.tab-item i {
+    font-size: 22px; /* Icon size */
+    margin-bottom: 4px;
+}
+
+/* Utility for vibrant gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #f87171, #fbbf24, #a3e635, #4ade80, #2dd4bf, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
